@@ -12,7 +12,7 @@
     href="polymer/components/core-toolbar/core-toolbar.html">
   <link rel="import"
     href="polymer/components/paper-tabs/paper-tabs.html">
-  <link rel="import" href="post-card.html">
+  <link rel="import" href="post-list.html">
   <style>
   html,body {
     height: 100%;
@@ -62,19 +62,17 @@
     </core-toolbar>
 
     <div class="container" layout vertical center>
-      <post-card>
-        <img src="polymer/images/avatar-07.svg" width="70" height="70">
-        <h2>Another Developer</h2>
-        <p>I'm composing with shadow DOM!</p>
-      </post-card>
+        <post-list show="all"></post-list>
     </div>
   </core-header-panel>
   
   <script>
-    var tabs = document.querySelector('paper-tabs');
-    tabs.addEventListener('core-select', function() {
-      console.log("Selected: " + tabs.selected);
-    });
+  var list = document.querySelector('post-list');
+  var tabs = document.querySelector('paper-tabs');
+
+  tabs.addEventListener('core-select', function() {
+    list.show = tabs.selected;
+  });
   </script>
 </body>
 
